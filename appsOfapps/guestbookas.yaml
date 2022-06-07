@@ -7,9 +7,9 @@ spec:
   - list:
       elements:
       - cluster: engineering-dev
-        url: https://172.19.0.2:6443
-      - cluster: engineering-prod
         url: https://172.19.0.3:6443
+      - cluster: engineering-prod
+        url: https://172.19.0.4:6443
   template:
     metadata:
       name: '{{cluster}}-guestbook'
