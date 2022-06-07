@@ -12,7 +12,7 @@ spec:
         url: https://172.19.0.4:6443
   template:
     metadata:
-      name: '{{cluster}}-guestbook'
+            name: '{{slice cluster 3:-1}}-guestbook'
     spec:
       project: default
       source:
