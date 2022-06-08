@@ -4,16 +4,16 @@ metadata:
   name: cluster-addons
 spec:
   generators:
-  - matrix:
-      generators:
-      # git generator, 'child' #1
-      - git:
-          repoURL: https://github.com/argoproj/argo-cd.git
-          revision: HEAD
-          directories:
-          - path: applicationset/examples/matrix/cluster-addons/*
+      - matrix:
+        generators:
+        # git generator, 'child' #1
+        - git:
+            repoURL: https://github.com/argoproj/argo-cd.git
+            revision: HEAD
+            directories:
+            - path: applicationset/examples/matrix/cluster-addons/*
           # cluster generator, 'child' #2
-      - clusters: {}
+        - clusters: {}
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
