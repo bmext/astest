@@ -4,7 +4,7 @@ metadata:
   name: cluster-addons
 spec:
   generators:
-      - matrix:
+    - matrix:
         generators:
         # git generator, 'child' #1
         - git:
