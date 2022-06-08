@@ -6,26 +6,26 @@ spec:
   generators:
     - matrix:
         generators:
-        # git generator, 'child' #1
-        - git:
-            repoURL: https://github.com/argoproj/argo-cd.git
-            revision: HEAD
-            directories:
-            - path: applicationset/examples/matrix/cluster-addons/*
-          # cluster generator, 'child' #2
-        - clusters: {}
+          - git:
+              repoURL: 'https://github.com/argoproj/argo-cd.git'
+              revision: HEAD
+              directories:
+                - path: applicationset/examples/matrix/cluster-addons/*
+          - clusters: {}
   template:
     metadata:
       name: '{{path.basename}}-{{name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj-labs/applicationset.git
+        repoURL: 'https://github.com/argoproj-labs/applicationset.git'
         targetRevision: HEAD
         path: '{{path}}'
       destination:
-        server: {{server}}
+        server:
+          '[object Object]': null
         namespace: matrix
       syncPolicy:
         syncOptions:
-        - CreateNamespace=true
+          - CreateNamespace=true
+
